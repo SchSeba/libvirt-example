@@ -1,7 +1,8 @@
 FROM fedora:27
 
-MAINTAINER "The KubeVirt Project" <kubevirt-dev@googlegroups.com>
 ENV container docker
+
+RUN curl --output /etc/yum.repos.d/fedora-virt-preview.repo https://fedorapeople.org/groups/virt/virt-preview/fedora-virt-preview.repo
 
 # nettle update is necessary for dnsmasq which is used by libvirt
 RUN dnf -y update nettle && \
